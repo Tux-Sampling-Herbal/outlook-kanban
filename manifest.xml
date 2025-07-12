@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0" xsi:type="MailApp">
+  <Id>a4e63f9f-6820-4e28-9369-a1b6c5a0a95e</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>Your Name</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="Kanban Task Manager"/>
+  <Description DefaultValue="Turn emails into tasks and manage them on a Kanban board."/>
+  <IconUrl DefaultValue="http://127.0.0.1:8080/outlook/images/icon-32.png"/>
+  <HighResolutionIconUrl DefaultValue="http://127.0.0.1:8080/outlook/images/icon-80.png"/>
+  <SupportUrl DefaultValue="http://127.0.0.1:8080/outlook"/>
+  <AppDomains>
+    <AppDomain>http://127.0.0.1:8080</AppDomain>
+  </AppDomains>
+  <Hosts>
+    <Host Name="Mailbox"/>
+  </Hosts>
+  <Requirements>
+    <Sets>
+      <Set Name="Mailbox" MinVersion="1.8"/>
+    </Sets>
+  </Requirements>
+  <FormSettings>
+    <Form xsi:type="ItemRead">
+      <DesktopSettings>
+        <SourceLocation DefaultValue="http://127.0.0.1:8080/outlook/taskpane.html"/>
+        <RequestedHeight>250</RequestedHeight>
+      </DesktopSettings>
+    </Form>
+  </FormSettings>
+  <Permissions>ReadWriteItem</Permissions>
+  <Rule xsi:type="RuleCollection" Mode="Or">
+    <Rule xsi:type="ItemIs" ItemType="Message" FormType="Read"/>
+  </Rule>
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <Requirements>
+      <bt:Sets DefaultMinVersion="1.3">
+        <bt:Set Name="Mailbox"/>
+      </bt:Sets>
+    </Requirements>
+    <Hosts>
+      <Host xsi:type="MailHost">
+        <DesktopFormFactor>
+          <ExtensionPoint xsi:type="MessageReadCommandSurface">
+            <OfficeTab id="TabDefault">
+              <Group id="kanbanGroup">
+                <Label resid="GroupLabel"/>
+                <Control xsi:type="Button" id="kanbanButton">
+                  <Label resid="KanbanButtonLabel"/>
+                  <Supertip>
+                    <Title resid="KanbanButtonLabel"/>
+                    <Description resid="KanbanTooltip"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Icon.16x16"/>
+                    <bt:Image size="32" resid="Icon.32x32"/>
+                    <bt:Image size="80" resid="Icon.80x80"/>
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <SourceLocation resid="Kanban.Url"/>
+                  </Action>
+                </Control>
+                <Control xsi:type="Menu" id="msgReadMenu">
+                  <Label resid="ContextMenuLabel"/>
+                  <Supertip>
+                    <Title resid="ContextMenuLabel"/>
+                    <Description resid="ContextMenuTooltip"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Icon.16x16"/>
+                    <bt:Image size="32" resid="Icon.32x32"/>
+                    <bt:Image size="80" resid="Icon.80x80"/>
+                  </Icon>
+                  <Items>
+                    <Item id="msgCreateTask">
+                      <Label resid="CreateTaskButtonLabel"/>
+                      <Supertip>
+                        <Title resid="CreateTaskButtonLabel"/>
+                        <Description resid="CreateTaskTooltip"/>
+                      </Supertip>
+                      <Action xsi:type="ShowTaskpane">
+                        <SourceLocation resid="Taskpane.Url"/>
+                      </Action>
+                    </Item>
+                  </Items>
+                </Control>
+              </Group>
+            </OfficeTab>
+          </ExtensionPoint>
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+    <Resources>
+      <bt:Images>
+        <bt:Image id="Icon.16x16" DefaultValue="http://127.0.0.1:8080/outlook/images/icon-16.png"/>
+        <bt:Image id="Icon.32x32" DefaultValue="http://127.0.0.1:8080/outlook/images/icon-32.png"/>
+        <bt:Image id="Icon.80x80" DefaultValue="http://127.0.0.1:8080/outlook/images/icon-80.png"/>
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="Taskpane.Url" DefaultValue="http://127.0.0.1:8080/outlook/taskpane.html"/>
+        <bt:Url id="Kanban.Url" DefaultValue="http://127.0.0.1:8080/outlook/kanban.html"/>
+      </bt:Urls>
+      <bt:ShortStrings>
+        <bt:String id="GroupLabel" DefaultValue="Task Manager"/>
+        <bt:String id="ContextMenuLabel" DefaultValue="Task Actions"/>
+        <bt:String id="CreateTaskButtonLabel" DefaultValue="Create Task"/>
+        <bt:String id="KanbanButtonLabel" DefaultValue="Kanban Board"/>
+      </bt:ShortStrings>
+      <bt:LongStrings>
+        <bt:String id="CreateTaskTooltip" DefaultValue="Creates a new task from this email."/>
+        <bt:String id="KanbanTooltip" DefaultValue="Opens the Kanban board to view all tasks."/>
+        <bt:String id="ContextMenuTooltip" DefaultValue="More actions for this task."/>
+      </bt:LongStrings>
+    </Resources>
+  </VersionOverrides>
+</OfficeApp>
