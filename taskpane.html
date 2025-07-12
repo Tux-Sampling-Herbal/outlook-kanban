@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <title>Create Task</title>
+    <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.4.0/css/fabric.min.css" />
+    <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.4.0/css/fabric.components.min.css" />
+    <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+    <link rel="stylesheet" href="taskpane.css">
+</head>
+<body class="ms-Fabric">
+    <div class="container">
+        <h1 class="ms-fontSize-xl">Create New Task</h1>
+        <div class="ms-Grid" dir="ltr">
+            <div class="ms-Grid-row">
+                <div class="ms-Grid-col ms-sm12">
+                    <div class="ms-TextField">
+                        <label class="ms-Label">Task Title</label>
+                        <input class="ms-TextField-field" type="text" id="taskTitle" placeholder="Task Title">
+                    </div>
+                </div>
+            </div>
+            <div class="ms-Grid-row">
+                <div class="ms-Grid-col ms-sm12">
+                    <div class="ms-TextField ms-TextField--multiline">
+                        <label class="ms-Label">Description</label>
+                        <textarea class="ms-TextField-field" id="taskDescription" rows="5"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="ms-Grid-row">
+                <div class="ms-Grid-col ms-sm6">
+                    <div class="ms-DatePicker">
+                        <label class="ms-Label">Due Date</label>
+                        <input type="date" id="dueDate" class="ms-TextField-field">
+                    </div>
+                </div>
+                <div class="ms-Grid-col ms-sm6">
+                    <div class="ms-Dropdown">
+                        <label class="ms-Label">Status</label>
+                        <select id="status" class="ms-Dropdown-select">
+                            <option>To Do</option>
+                            <option>In Progress</option>
+                            <option>Done</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+             <div class="ms-Grid-row">
+                <div class="ms-Grid-col ms-sm12">
+                    <div class="ms-TextField">
+                        <label class="ms-Label">Assigned To</label>
+                        <input class="ms-TextField-field" type="text" id="assignedTo" placeholder="Assignee Name">
+                    </div>
+                </div>
+            </div>
+            <div class="ms-Grid-row">
+                <div class="ms-Grid-col ms-sm12">
+                    <div class="ms-TextField ms-TextField--multiline">
+                        <label class="ms-Label">Comments</label>
+                        <textarea class="ms-TextField-field" id="comments" rows="3"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="ms-Grid-row">
+                <div class="ms-Grid-col ms-sm12">
+                    <button id="saveTask" class="ms-Button ms-Button--primary"><span class="ms-Button-label">Save Task</span></button>
+                </div>
+            </div>
+        </div>
+        <div id="notification" class="notification"></div>
+    </div>
+    <script src="taskpane.js"></script>
+</body>
+</html>

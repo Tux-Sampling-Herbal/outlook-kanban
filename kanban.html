@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <title>Kanban Board</title>
+    <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+    <link rel="stylesheet" href="kanban.css">
+</head>
+<body>
+    <div class="board-container">
+        <h1 class="board-title">Kanban Board</h1>
+        <div id="kanbanBoard" class="kanban-board">
+            <div class="kanban-column" id="col-todo">
+                <h2>To Do</h2>
+                <div class="tasks-container" id="tasks-todo"></div>
+            </div>
+            <div class="kanban-column" id="col-inprogress">
+                <h2>In Progress</h2>
+                <div class="tasks-container" id="tasks-inprogress"></div>
+            </div>
+            <div class="kanban-column" id="col-done">
+                <h2>Done</h2>
+                <div class="tasks-container" id="tasks-done"></div>
+            </div>
+        </div>
+    </div>
+    <script src="kanban.js"></script>
+</body>
+</html>
